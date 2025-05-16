@@ -6,12 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (emailProtect) {
             // Split email into parts and encode
             const parts = ['ben', '@', 'wpsteward', '.', 'com'];
+            const email = parts.join('');
             
             // Create clickable email link
             const link = document.createElement('a');
-            link.href = 'mailto:' + parts.join('');
-            link.textContent = parts.join('');
+            link.href = 'mailto:' + email;
+            link.textContent = email;
             link.className = 'email-link';
+            link.setAttribute('aria-label', 'Contact us via email');
             
             // Add some basic protection
             link.addEventListener('click', (e) => {
