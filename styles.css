@@ -140,6 +140,13 @@ main {
     transform: scaleX(1);
 }
 
+.contact-note {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
 /* Benefits section styles */
 .benefits {
     display: grid;
@@ -283,6 +290,11 @@ main {
 
 .bottom-cta a.email-link:hover {
     color: #2980b9;
+}
+
+.bottom-cta .contact-note {
+    color: white;
+    font-weight: 500;
 }
 
 /* Buy button styles */
