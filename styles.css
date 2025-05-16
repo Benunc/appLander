@@ -185,8 +185,89 @@ main {
 
 .pricing h2 {
     color: #2c3e50;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     font-size: 2.5rem;
+}
+
+.pricing-subtitle {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.price-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.original-price {
+    font-size: 1.5rem;
+    color: #95a5a6;
+    text-decoration: line-through;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.discount-badge {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    transform: rotate(15deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: rotate(15deg) scale(1);
+    }
+    50% {
+        transform: rotate(15deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(15deg) scale(1);
+    }
+}
+
+.pricing-card.featured .price {
+    color: #e74c3c;
+}
+
+.pricing-card.featured .original-price {
+    color: #95a5a6;
+}
+
+.pricing-card.featured .discount-badge {
+    background-color: #e74c3c;
+}
+
+.pricing-note {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    border-left: 4px solid #e74c3c;
 }
 
 .pricing-grid {
@@ -217,13 +298,6 @@ main {
     color: #2c3e50;
     font-size: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.pricing-card .price {
-    font-size: 2.5rem;
-    color: #3498db;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
 }
 
 .pricing-card .features {
@@ -276,18 +350,6 @@ main {
 .pricing-card .buy-button:focus {
     outline: 2px solid #2c3e50;
     outline-offset: 2px;
-}
-
-.pricing-note {
-    color: #666;
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    line-height: 1.6;
 }
 
 /* Bottom CTA styles */
