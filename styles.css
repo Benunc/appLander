@@ -67,7 +67,7 @@ main {
 
 .app-list {
     list-style: none;
-    padding: 0;
+    padding: 0 0 0 8rem;
     margin: 0 auto;
     max-width: 800px;
     display: grid;
