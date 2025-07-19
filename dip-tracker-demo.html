@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triceps Dip Tracker Demo - Your Personal Digital Assistant</title>
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="favicon.png">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Triceps Dip Tracker Demo - Custom Fitness App">
+    <meta property="og:description" content="See how a custom fitness tracking app can help you achieve your goals. No generic features, just what you need to succeed.">
+    <meta property="og:image" content="https://apps.wpsteward.com/AppSocialShare.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apps.wpsteward.com/dip-tracker-demo.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://apps.wpsteward.com/AppSocialShare.png">
+    
+    <link rel="stylesheet" href="styles.css?v=1">
+    <style>
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .demo-app {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .app-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .app-header h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .app-header p {
+            color: #666;
+        }
+        
+        .tracker-interface {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .input-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .input-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .dip-input {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .dip-input input {
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            width: 100px;
+            text-align: center;
+        }
+        
+        .dip-input button {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .dip-input button:hover {
+            background: #38a169;
+        }
+        
+        .stats-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .stats-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .stat-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .progress-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .progress-section h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            height: 20px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: #48bb78;
+            height: 100%;
+            width: 74%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .benefits-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .benefit-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .benefit-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link a:hover {
+            color: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .tracker-interface {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+            
+            .app-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
+        <h1>Triceps Dip Tracker Demo</h1>
+    </header>   
+
+    <main id="main-content" role="main">
+        <div class="demo-container">
+            <section class="demo-header" role="region" aria-labelledby="demo-heading">
+                <h2 id="demo-heading">See How a Custom App Transforms Your Goals</h2>
+                <p>This is a demo of my personal triceps dip tracker - built exactly for my fitness journey. No generic features, no confusing interface. Just a simple tool that helps me stay on track.</p>
+            </section>
+
+            <section class="demo-app" role="region" aria-labelledby="app-heading">
+                <div class="app-header">
+                    <h2 id="app-heading">My 2025 Dip Challenge Tracker</h2>
+                    <p>Goal: 10,000 dips by the end of 2025</p>
+                </div>
+
+                <div class="tracker-interface">
+                    <div class="input-section">
+                        <h3>Log Today's Dips</h3>
+                        <div class="dip-input">
+                            <input type="number" id="dipCount" placeholder="0" min="0" max="1000">
+                            <button onclick="logDips()">Log Dips</button>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                            Just enter the number and click. That's it. No complicated forms, no unnecessary fields.
+                        </p>
+                    </div>
+
+                    <div class="stats-section">
+                        <h3>Your Progress</h3>
+                        <div class="stat-item">
+                            <span class="stat-label">Today's Dips:</span>
+                            <span class="stat-value" id="todayDips">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Dips:</span>
+                            <span class="stat-value" id="totalDips">7,422</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Daily Average:</span>
+                            <span class="stat-value" id="dailyAverage">49.5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Days Remaining:</span>
+                            <span class="stat-value" id="daysRemaining">240</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <h3>Goal Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p><strong id="progressText">74% Complete</strong> - You're ahead of schedule!</p>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">
+                        Projected year-end total: <strong id="projectedTotal">10,800</strong> dips
+                    </p>
+                </div>
+            </section>
+
+            <section class="benefits-section" role="region" aria-labelledby="benefits-heading">
+                <h2 id="benefits-heading" class="visually-hidden">Benefits</h2>
+                <div class="benefit-item">
+                    <h4>🎯 Laser Focus</h4>
+                    <p>This app does one thing perfectly: track dips. No workout plans, no nutrition advice, no social features. Just pure, focused tracking.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>⚡ Instant Feedback</h4>
+                    <p>See your progress immediately. Know exactly where you stand against your goal and what you need to do to succeed.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>📈 Smart Projections</h4>
+                    <p>Automatically calculates if you're on track, ahead, or behind. No manual math, no guesswork.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>💪 Motivation Built-In</h4>
+                    <p>Visual progress bars and clear metrics keep you motivated. When you see you're ahead of schedule, it pushes you to keep going.</p>
+                </div>
+            </section>
+
+            <section class="cta-section" role="region" aria-labelledby="cta-heading">
+                <h2 id="cta-heading">Want Your Own Custom App?</h2>
+                <p>This is exactly what a custom app looks like. Simple, focused, and designed around your specific needs. No learning curve, no feature bloat.</p>
+                <a href="index.html" class="buy-button">Get Your Custom App</a>
+            </section>
+
+            <div class="back-link">
+                <a href="index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Demo functionality
+        let currentDips = 7422;
+        const goalDips = 10000;
+        const todayDips = 0;
+
+        // Calculate actual days left in the year
+        function getDaysLeftInYear() {
+            const now = new Date();
+            const endOfYear = new Date(now.getFullYear(), 11, 31); // December 31st
+            const timeDiff = endOfYear.getTime() - now.getTime();
+            const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysLeft;
+        }
+
+        // Calculate days elapsed this year
+        function getDaysElapsed() {
+            const now = new Date();
+            const startOfYear = new Date(now.getFullYear(), 0, 1); // January 1st
+            const timeDiff = now.getTime() - startOfYear.getTime();
+            const daysElapsed = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysElapsed;
+        }
+
+        function logDips() {
+            const input = document.getElementById('dipCount');
+            const count = parseInt(input.value) || 0;
+            
+            if (count > 0) {
+                currentDips += count;
+                document.getElementById('todayDips').textContent = count;
+                document.getElementById('totalDips').textContent = currentDips.toLocaleString();
+                
+                // Update progress
+                const progress = (currentDips / goalDips) * 100;
+                document.getElementById('progressFill').style.width = Math.min(progress, 100) + '%';
+                document.getElementById('progressText').textContent = Math.round(progress) + '% Complete';
+                
+                // Update daily average using actual days elapsed
+                const daysElapsed = getDaysElapsed();
+                const newAverage = (currentDips / daysElapsed).toFixed(1);
+                document.getElementById('dailyAverage').textContent = newAverage;
+                
+                // Update projected total using actual days left
+                const daysLeft = getDaysLeftInYear();
+                const projectedTotal = Math.round(currentDips + (newAverage * daysLeft));
+                document.getElementById('projectedTotal').textContent = projectedTotal.toLocaleString();
+                
+                // Update days remaining display
+                document.getElementById('daysRemaining').textContent = daysLeft;
+                
+                // Clear input
+                input.value = '';
+                
+                // Show success message
+                alert(`Logged ${count} dips! Great work!`);
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('dipCount').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                logDips();
+            }
+        });
+
+        // Initialize progress bar and update initial values
+        document.addEventListener('DOMContentLoaded', function() {
+            const progress = (currentDips / goalDips) * 100;
+            document.getElementById('progressFill').style.width = Math.min(progress, 100) + '%';
+            
+            // Update initial days remaining and daily average with actual values
+            const daysLeft = getDaysLeftInYear();
+            const daysElapsed = getDaysElapsed();
+            const initialAverage = (currentDips / daysElapsed).toFixed(1);
+            const projectedTotal = Math.round(currentDips + (initialAverage * daysLeft));
+            
+            document.getElementById('daysRemaining').textContent = daysLeft;
+            document.getElementById('dailyAverage').textContent = initialAverage;
+            document.getElementById('projectedTotal').textContent = projectedTotal.toLocaleString();
+        });
+    </script>
+</body>
+</html> 
